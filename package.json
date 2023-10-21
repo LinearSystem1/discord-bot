@@ -1,0 +1,19 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "main",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinearSystem1/discord-bot.git"
+  },
+  "author": "linear",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LinearSystem1/discord-bot/issues"
+  },
+  "homepage": "https://github.com/LinearSystem1/discord-bot#readme"
+}
