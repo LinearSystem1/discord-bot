@@ -17,7 +17,7 @@ client.on('ready', (c) => {
 
 
 client.on('messageCreate', (message) => {
-    console.log(message.content);
+    console.log(message.author.username,":", message.content);
 });
 
 
@@ -32,7 +32,7 @@ client.on('messageCreate', (message) => {
 });
 
 client.on('messageCreate', (message) => {
-    const random = Math.floor(Math.random() * list.length);
+    var random = Math.floor(Math.random() * list.length);
     if (message.author.bot) {
         return;
     }
@@ -45,8 +45,6 @@ client.on('messageCreate', (message) => {
 
 client.login(process.env.TOKEN);
 
-var hello = 0
-console.log(hello);
-console.log("meow");
 
+console.log("meow");
 //HELPP HELP ME
