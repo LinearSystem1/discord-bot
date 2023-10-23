@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, messageLink } = require('discord.js');
 const list = ["-1 Level", "-3 Levels", "-5 Levels", "-10 Levels", "+1 Level", "+3 Levels", "+5 Levels", "+7 Levels", "Automatic HE Role", "Automatic TETH Role", "Automatic WAW Role", "Choosen Level Reset", "Go to #base-camp (damned for an hour get 3 levels for full sentence)", "Level Reset", "Librarian Role (Must have Colored Fixer, if not default to reroll)", "Double Trouble", "Reroll"];
 
 const client = new Client({
@@ -25,26 +25,19 @@ client.on('messageCreate', (message) => {
     if (message.author.bot) {
         return;
     }
-
     if (message.content === 'hello') {
         message.reply('hi')
     }
-});
-
-client.on('messageCreate', (message) => {
-    var random = Math.floor(Math.random() * list.length);
-    if (message.author.bot) {
-        return;
-    }
-
     if (message.content === 'funnylist') {
+        var random = Math.floor(Math.random() * list.length);
         message.reply(list[random])
+    }
+    if (message.content === 'is dum gay?') {
+        message.reply('yes')
     }
 });
 
 
 client.login(process.env.TOKEN);
-
-
 console.log("meow");
-//HELPP HELP ME
+//HELPP HELP ME aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
