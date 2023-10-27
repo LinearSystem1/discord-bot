@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, IntentsBitField, messageLink } = require('discord.js');
+const { Client, IntentsBitField, messageLink, EmbedBuilder} = require('discord.js');
 const list = ["-1 Level", "-3 Levels", "-5 Levels", "-10 Levels", "+1 Level", "+3 Levels", "+5 Levels", "+7 Levels", "Automatic HE Role", "Automatic TETH Role", "Automatic WAW Role", "Choosen Level Reset", "Go to #base-camp (damned for an hour get 3 levels for full sentence)", "Level Reset", "Librarian Role (Must have Colored Fixer, if not default to reroll)", "Double Trouble", "Reroll"];
 
 const client = new Client({
@@ -26,7 +26,7 @@ client.on('messageCreate', (message) => {
         return;
     }
     if (message.content === 'hello') {
-        message.reply('hi')
+        message.channel.send('hi')
     }
     if (message.content === 'funnylist') {
         var random = Math.floor(Math.random() * list.length);
@@ -49,7 +49,23 @@ client.on('interactionCreate', (interaction) => {
         const num2 = interaction.options.get('second-number').value;
         interaction.reply(`The sum is ${num1 + num2}`); 
     }
+    if (interaction.commandName === 'embed') {
+        const embed = new EmbedBuilder()
+            .setTitle("Embed title")
+            .setDescription('This is an embed description')
+            .setColor('Random')
+            .addFields({
+                name: 'Field title', 
+                value: 'Some random value', 
+                inline: true, 
+            }, {
+                name: '2nd Field title', 
+                value: 'yippeee', 
+                inline: true, 
+            });
 
+        interaction.reply({embeds: [embed] });
+    }
 });
 
 
