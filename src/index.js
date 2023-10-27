@@ -43,6 +43,10 @@ client.on('interactionCreate', (interaction) => {
     if (interaction.commandName === 'hey') {
         interaction.reply('hey!');
     }
+    
+    if (interaction.commandName === 'ping') {
+        interaction.reply('pong!');
+    }
 
 });
 
