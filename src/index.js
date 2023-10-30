@@ -100,5 +100,5 @@ client.on('interactionCreate', async (interaction) => {
 
 
 client.login(process.env.TOKEN);
-console.log("meow");
+console.log("meow :3");
 //HELPP HELP ME aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
