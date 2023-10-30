@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, IntentsBitField, messageLink, EmbedBuilder} = require('discord.js');
+const { Client, IntentsBitField, messageLink, EmbedBuilder, embedLength} = require('discord.js');
 const list = ["-1 Level", "-3 Levels", "-5 Levels", "-10 Levels", "+1 Level", "+3 Levels", "+5 Levels", "+7 Levels", "Automatic HE Role", "Automatic TETH Role", "Automatic WAW Role", "Choosen Level Reset", "Go to #base-camp (damned for an hour get 3 levels for full sentence)", "Level Reset", "Librarian Role (Must have Colored Fixer, if not default to reroll)", "Double Trouble", "Reroll"];
 
 const client = new Client({
@@ -37,7 +37,7 @@ client.on('messageCreate', (message) => {
     }
 });
 
-client.on('interactionCreate', (interaction) => {
+client.on('interactionCreate', async (interaction) => {
     if (!interaction.isChatInputCommand()) return;
 
     if (interaction.commandName === 'hey') {
@@ -66,7 +66,37 @@ client.on('interactionCreate', (interaction) => {
 
         interaction.reply({embeds: [embed] });
     }
+
 });
+
+client.on('interactionCreate', async (interaction) => {
+    try {
+        if (!interaction.isButton()) return;
+                    await interaction.deferReply({ephemeral: true});
+            
+            const role = interaction.guild.roles.cache.get(interaction.customId);
+            if (!role) {
+                interaction.reply({
+                    content: "I couldn't find that role",
+                })
+                return;
+            }
+    
+            const hasRole = interaction.member.roles.cache.has(role.id);
+    
+            if (hasRole) {
+                await interaction.member.roles.remove(role);
+                await interaction.editReply(`The role ${role} has been removed.`);
+                return;
+            }
+            await interaction.member.roles.add(role);
+            await interaction.editReply(`The role ${role} has been added.`);
+    } catch (error) {
+        console.log(error)
+    }
+
+});
+
 
 
 client.login(process.env.TOKEN);
