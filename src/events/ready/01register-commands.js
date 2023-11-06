@@ -4,16 +4,17 @@ const getApplicationCommands = require('../../utils/getApplicationCommands');
 const getLocalCommands = require('../../utils/getLocalCommands');
 
 module.exports = async (client) => {
-    const localCommands = getLocalCommands();
-
     try {
         const localCommands = getLocalCommands();
-        const applicationCommands = await getApplicationCommands(client, testServer);
+        const applicationCommands = await getApplicationCommands(
+            client,
+            testServer
+            );
 
         for (const localCommand of localCommands) {
             const { name, description, options } = localCommand;
 
-            const existingCommand = await applicationCommands.fetch.find(
+            const existingCommand = await applicationCommands.cache.find(
                 (cmd) => cmd.name === name
             );
 

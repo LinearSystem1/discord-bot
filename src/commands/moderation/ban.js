@@ -19,6 +19,7 @@ module.exports = {
         },
     ],
     permissionsRequired: [PermissionFlagsBits.Administrator],
+    botPermissios: [PermissionFlagsBits.Administrator],
 
     callback: (client, interatction) => {
         interatction.reply("ban..");
