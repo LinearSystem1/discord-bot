@@ -1,4 +1,5 @@
 const {} = require('../../../config.json');
+const { deleted } = require('../../commands/moderation/kick');
 const getLocalCommands = require('../../utils/getLocalCommands');
 
 module.exports = async (client, interaction) => {
@@ -44,7 +45,7 @@ module.exports = async (client, interaction) => {
         
         if (commandObject.botPermissions?.length) {
             for (const permission of commandObject.botPermissions) {
-                const bot = interaction.guild.member.me;
+                const bot = interaction.guild.members.me;
 
                 if (!bot.permissions.has(permission)) {
                     interaction.reply({
