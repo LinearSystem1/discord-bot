@@ -50,7 +50,13 @@ client.on('messageCreate', (message) => {
     }
     if (message.content === 'hello') {
         message.channel.send('hi')
+
     }
+    if (message.content === 'how to fix world hunger') {
+        message.reply('take out the people in need of food\n just kidding :)')
+
+    }
+
     if (message.content === 'funnylist') {
         var random = Math.floor(Math.random() * list.length);
         message.reply(list[random])
@@ -66,6 +72,7 @@ client.on('interactionCreate', async (interaction) => {
     if (interaction.commandName === 'hey') {
         interaction.reply('hey!');
     }
+
     
     if (interaction.commandName === 'add') {
         const num1 = interaction.options.get('first-number').value;
