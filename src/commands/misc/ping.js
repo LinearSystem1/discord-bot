@@ -5,7 +5,6 @@ module.exports = {
     //devOnly: Boolean,
     //testOnly: Boolean,
     //options: Object[],
-    //deleted: Boolean,
 
     callback: async (client, interatction) => {
         await interatction.deferReply();
