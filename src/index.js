@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Client, IntentsBitField, messageLink, EmbedBuilder, embedLength, ActivityType} = require('discord.js');
+const mongoose = require('mongoose');
 const eventHandler = require('./handlers/eventHandler');
 
 
@@ -26,9 +27,21 @@ let status = [
         name: 'to commands',
         type: ActivityType.Listening,
     },
-]
+];
 
-eventHandler(client);
+(async () => {
+    try {
+        mongoose.set('strictQuery', false);
+        await mongoose.connect(process.env.MONGOOSE_URI);
+        console.log("Connected to DB.")
+
+        eventHandler(client);
+
+        client.login(process.env.TOKEN);        
+    } catch (error) {
+        console.log(`Error ${error}`)
+    }
+})();
 
 client.on('ready', (c) => {
 
@@ -129,6 +142,6 @@ client.on('interactionCreate', async (interaction) => {
 
 
 
-client.login(process.env.TOKEN);
+
 console.log("meow :3");
 //HELPP HELP ME aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
