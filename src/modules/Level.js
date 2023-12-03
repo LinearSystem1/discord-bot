@@ -1,6 +1,6 @@
 const { SlashCommandNumberOption } = require("discord.js");
 
-const { Schema, model } require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const levelSchema = new Schema({
     userId: {
