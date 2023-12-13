@@ -1,9 +1,10 @@
+//yummy requires for the bot
 require('dotenv').config();
 const { Client, IntentsBitField, messageLink, EmbedBuilder, embedLength, ActivityType} = require('discord.js');
 const mongoose = require('mongoose');
 const eventHandler = require('./handlers/eventHandler');
 
-
+// bot permissions
 const client = new Client({
     intents: [ 
         IntentsBitField.Flags.Guilds,
@@ -14,6 +15,7 @@ const client = new Client({
     ],
 });
 
+// bot status in discord
 let status = [
     {
         name: 'lovely day - Bill Withers',
@@ -30,6 +32,7 @@ let status = [
     },
 ];
 
+//starting the bot yippee
 (async () => {
     try {
         mongoose.set('strictQuery', false);

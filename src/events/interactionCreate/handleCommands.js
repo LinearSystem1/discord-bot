@@ -1,4 +1,4 @@
-const {} = require('../../../config.json');
+const { testServer } = require('../../../config.json');
 const { deleted } = require('../../commands/moderation/kick');
 const getLocalCommands = require('../../utils/getLocalCommands');
 
@@ -20,7 +20,7 @@ module.exports = async (client, interaction) => {
                 });
                 return;
             }
-        }
+        } 
         if (commandObject.testOnly) {
             if (!(interaction.guild.id === testServer)) {
                 interaction.reply({

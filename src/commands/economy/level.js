@@ -9,6 +9,7 @@ module.exports={
      * @param {Client} client 
      * @param {Interaction} interaction 
      */
+
     callback: async (client, interaction) => {
         if(!interaction.inGuild()) {
             interaction.reply("You can only run command inside a server.");
@@ -65,6 +66,10 @@ module.exports={
 
     name: 'level',
     description: "Shows your/someones's level.",
+    deleted: false,
+    //devOnly: Boolean,
+    testOnly: true,
+    //options: Object[],
     options: [
         {
             name: 'target-user',

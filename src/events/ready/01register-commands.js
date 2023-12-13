@@ -6,10 +6,7 @@ const getLocalCommands = require('../../utils/getLocalCommands');
 module.exports = async (client) => {
     try {
         const localCommands = getLocalCommands();
-        const applicationCommands = await getApplicationCommands(
-            client,
-            testServer
-            );
+        const applicationCommands = await getApplicationCommands(client);
 
         for (const localCommand of localCommands) {
             const { name, description, options } = localCommand;
@@ -43,7 +40,7 @@ module.exports = async (client) => {
                     name,
                     description,
                     options,
-                })
+                });
 
                 console.log(`Registered command "${name}".`);
             }
