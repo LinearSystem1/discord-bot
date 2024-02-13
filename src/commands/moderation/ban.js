@@ -51,8 +51,8 @@ module.exports = {
 
     name: 'ban',
     description: 'Bans a member from the server.',
-    //devOnly: Boolean,
-    //testOnly: Boolean,
+    devOnly: false,
+    testOnly: false,
     options: [
         {
             name: 'target-user',

@@ -1,6 +1,7 @@
 
 module.exports = {
     deleted: false,
+    testOnly: true,
     name: 'work-in-progress',
     description: 'Work in progress',
 

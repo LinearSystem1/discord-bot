@@ -1,9 +1,10 @@
 module.exports = {
-    deleted: false,
+   
     name: 'ping',
     description: 'Replies with bot ping!',
-    //devOnly: Boolean,
-    //testOnly: Boolean,
+    deleted: false,
+    devOnly: false,
+    testOnly: false,
     //options: Object[],
 
     callback: async (client, interatction) => {
