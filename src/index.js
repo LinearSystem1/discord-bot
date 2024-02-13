@@ -55,12 +55,12 @@ client.on('ready', (c) => {
     }, 10000);
 });
 
-
+//logging
 client.on('messageCreate', (message) => {
     console.log(message.author.username,":", message.content);
 });
 
-
+//using some non command commands
 client.on('messageCreate', (message) => {
     if (message.author.bot) {
         return;
@@ -83,6 +83,7 @@ client.on('messageCreate', (message) => {
     }
 });
 
+//using some commands
 client.on('interactionCreate', async (interaction) => {
     if (!interaction.isChatInputCommand()) return;
 
@@ -116,6 +117,8 @@ client.on('interactionCreate', async (interaction) => {
 
 });
 
+
+//role buttons
 client.on('interactionCreate', async (interaction) => {
     try {
         if (!interaction.isButton()) return;

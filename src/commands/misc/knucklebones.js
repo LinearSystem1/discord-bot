@@ -1,9 +1,10 @@
 module.exports = {
-    name: 'Knucklebones',
-    description: 'The classic game of Knucklebones.',
+
     deleted: false,
     devOnly: false,
     testOnly: false,
+    name: 'knucklebones',
+    description: 'The classic game of Knucklebones.',
 
     callback: async (client, interatction) => {
         await interatction.deferReply();
@@ -14,10 +15,13 @@ module.exports = {
         const diceNum = [0, 1, 2, 3, 4, 5, 6]
         var row1 = []
         var row2 = []
-        var row3 = []   
+        var row3 = []
 
         function declareDiceNum() {
-            
+            var dice = Math.floor(Math.random() * diceNum.length);
+            return dice
         }
+        var dice = declareDiceNum()
+        interatction.editReply(dice)
     },
 };

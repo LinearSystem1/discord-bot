@@ -1,5 +1,4 @@
 module.exports = {
-   
     name: 'ping',
     description: 'Replies with bot ping!',
     deleted: false,
@@ -15,5 +14,5 @@ module.exports = {
         const ping = reply.createdTimestamp - interatction.createdTimestamp;
 
         interatction.editReply(`Pong! Client ${ping}ms | Websocket: ${client.ws.ping}ms`);
-    },
+    }, 
 };
